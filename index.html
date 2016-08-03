@@ -1,0 +1,28 @@
+
+<html ng-app="zapApp">
+<head>
+	<title update-title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link href="assets/css/animate.css" rel="stylesheet" media="screen" />
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen" />
+	<link href="assets/css/style.css" rel="stylesheet" media="screen" />
+	<link href="assets/css/myStyle.css" rel="stylesheet" media="screen" />
+	<script update-script></script>
+</head>
+<body>
+	<header>
+		<div ui-view="header"></div>
+	</header>
+	<div ui-view="container" class="container zap-container"></div>
+	<footer id="mainFooter" ui-view="footer">
+	
+	</footer>
+</body>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/angular.js"></script>
+	<script src="assets/js/angular-ui-router.min.js"></script>
+	<script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+	<script src="assets/js/controller.js"></script>
+	
+</html>

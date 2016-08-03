@@ -1,0 +1,104 @@
+<div class="row">
+
+	<div class="col-lg-7">
+		<div ng-repeat="title in titles">
+			<div class="zap-col-title" >
+				<h3 class="zap-{{title.type}}"><img src="{{title.img}}" alt/><span> {{title.label}}</span></h3>
+			</div>
+			<div class="zap-col form-horizontal" ng-repeat="item in title.content">
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">{{item.label}}: </label>
+					<div class="col-sm-8">
+					  <input type="{{item.type}}" class="form-control" id="" ng-model="item.val" placeholder="{{item.placeholder}}">
+					</div>
+					<div class="col-sm-1">
+					  
+					</div>
+				 </div>
+		</div>
+		</div>
+	</div>
+	
+	<div class="col-lg-5 zap-map-order">
+		<img src="assets/img/zap/zap-demo-map.png" alt/>
+	</div>
+	
+</div>
+
+<div class="row">
+	<div class="col-lg-7">
+		<div class="zap-col-title" >
+				<h3 class="zap-pickup"><img src="assets/img/zap/zap-package.png" alt/><span> CHOOSE PACKAGE SIZE</span></h3>
+			</div>
+		<div class="col-lg-7" >
+			<div class="zap-border">
+			<div class="row">
+				<div  ng-class="{ zapActivePackage: $index == pageNumber }" class="col-lg-6 zap-package-type zap-cursor" ng-bind-html="package.label" ng-click="addClassPackage($index)" ng-repeat="package in packages"></div>
+			</div>
+			<div class=""  ng-repeat="items in packages" ng-class="{ animated: $index == pageNumber,fadeInDown: $index == pageNumber, zapNone: $index != pageNumber}"> 
+				<div class="zap-wrap-package row" ng-repeat="item in items.content">
+					<div class="zap-wrap col-lg-2 zap-pickup-status">
+						<img ng-src="assets/img/zap/{{ $index == pagepackage && 'zap-pick-action.png' || 'zap-not-pick.png' }}" alt/>
+					</div>
+					<div class="zap-wrap col-lg-10">
+						<div class="zap-title-type-package" ng-click="addanimatePackage($index)">{{item.label}}<span>{{item.code}}</span></div>
+						<div class="zap-content-type-package"  ng-class="{ animated: ($index == pagepackage && $parent.$index == pageNumber),fadeInDown: ($index == pagepackage && $parent.$index == pageNumber), zapNone: ($index != pagepackage && $parent.$index == pageNumber)}" ng-bind-html="item.content"></div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="col-lg-5">
+			<div class="zap-border">
+				<div class="col-lg-12 zap-package-type-left">
+					PROMO CODE
+				</div>
+				<div class="col-lg-12" ng-bind-html="promoCode[0].html">
+					
+				</div>
+				
+				<div class="col-lg-12">
+					<button type="button" class="btn zap-btn-promo" ng-click="applyPromo()">{{promoCode[0].aCode}}</button>
+				</div>
+				
+				<div class="col-lg-12">
+					{{promoCode[0].info}}
+				</div>
+			</div>
+		</div>
+		<div class="form-group col-lg-12 zap-order-detalled">
+			<div class="row">
+				<label for="" class="col-sm-3 control-label">{{orderDetalled[0].label}}: </label>
+				<div class="col-sm-9">
+					  <input type="{{orderDetalled[0].type}}" class="form-control" id="" ng-model="orderDetalled[0].val" placeholder="{{orderDetalled[0].placeholder}}">
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-lg-5">
+		<div class="zap-col-title" >
+			<h3 class="zap-dropoff"><img src="assets/img/zap/review-order.png" alt/><span> REVIEW ORDER</span></h3>
+		</div>
+		<div class="zap-border zap-review">
+			<div class="zap-border-bottom">
+				<p>Delivery type <span class="zap-review-item">{{reviewDeliveryType}}</span></p>
+				<p>Package size<span class="zap-review-item">{{packageType}}</span></p>
+				<p>Distance<span class="zap-review-item">{{reviewDistance}}</span></p>
+			</div>
+			<div class="zap-border-bottom">
+				<p>Subtotal <span class="zap-review-item">{{reviewSubtotal}}</span></p>
+				<p>Discount (<span class="zap-discount">{{reviewDiscount}}</span>)<span class="zap-review-item">{{reviewDiscountSGD}}</span></p>
+				<p class="zap-total">Total<span class="zap-review-item-total">{{reviewTotal}}</span></p>
+				<p class="zap-total-info">{{reviewTotalInfo}}</p>
+			</div>
+			<div class="zap-review-bottom col-lg-12">
+				<div class="row">
+					<button type="button" class="btn btn-default zap-review-reser" ng-click="">RESET</button>
+					<button type="button" class="btn btn-default zap-review-create-order" ng-click="">CREATE ORDER</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
